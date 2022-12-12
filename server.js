@@ -2,6 +2,7 @@ const express = require("express");
 const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3001;
+const uuid = require('./helpers/uuid.js');
 //importing the db file
 const db = require("./db/db.json")
 const { readFromFile, readAndAppend } = require('./helpers/fsUtils');
@@ -20,8 +21,14 @@ app.get("/", (req,res) =>
 app.get("/notes",(req, res) =>
     res.sendFile(path.join(__dirname, '/public/notes.html'))    
 );
+
+
 //calls the fetch command in index.js and then render the db.json to notes.html
 app.get("/api/notes",(req, res) => res.json(db));
+
+// app.get("/api/notes", (req, res)=>
+// res.sendFile(path.join(__dirname, '/db/db.json'))
+// );
 
 ////////////////////////
 
@@ -33,6 +40,7 @@ if(req.body){
     const newNote = {
         title,
         text,
+        id: uuid(),
       };
       readAndAppend(newNote, "./db/db.json");
       res.json(`new note added successfully`);
@@ -40,7 +48,6 @@ if(req.body){
       res.error('Error in adding new note');
     }
 });
-
 
 ////////////////////////
 app.listen(PORT, ()=>{
