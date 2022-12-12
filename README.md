@@ -16,7 +16,7 @@ If the any of the items on the left column are clicked, that item will be displa
 On the top right of the navbar; a plus sign is displayed, if it is clicked the input fields will be emptied.
 
 
-![alt text](assets/images/display.png)
+![alt text](/note.png)
 
 
 
