@@ -2,6 +2,7 @@ const express = require("express");
 const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3001;
+//importing the uuid id creator function
 const uuid = require('./helpers/uuid.js');
 //importing the db file
 const db = require("./db/db.json")
@@ -22,15 +23,8 @@ app.get("/notes",(req, res) =>
     res.sendFile(path.join(__dirname, '/public/notes.html'))    
 );
 
-
 //calls the fetch command in index.js and then render the db.json to notes.html
-app.get("/api/notes",(req, res) => res.json(db));
-
-// app.get("/api/notes", (req, res)=>
-// res.sendFile(path.join(__dirname, '/db/db.json'))
-// );
-
-////////////////////////
+app.get("/api/notes",(req, res) => res.sendFile(path.join(__dirname, "/db/db.json")));
 
 app.post("/api/notes", (req, res) =>{
 console.info(`${req.method} has been sent`)
@@ -53,3 +47,4 @@ if(req.body){
 app.listen(PORT, ()=>{
     console.log(`listening to port ${PORT}`);
 });
+

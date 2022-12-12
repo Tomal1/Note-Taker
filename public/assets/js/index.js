@@ -52,7 +52,8 @@ const deleteNote = (id) =>
 
 const renderActiveNote = () => {
   hide(saveNoteBtn);
-  if (activeNote.id) {
+  if (activeNote.id) { /*activateNote.id will allow us to display the note text 
+  back on the right hand side, the id is created in the uuid.js file*/
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
