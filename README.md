@@ -4,6 +4,8 @@
 A web application that uses client side technologies to build an user interface that takes a couple of inputs by the client and then stores those inputs into a server side API.
 The API then extracts the relevant data to populate another section on the user interface for the client convenience.
 
+Heroku repo URL: https://arcane-savannah-67499.herokuapp.com/notes
+
 gitHub repo URL: https://github.com/Tomal1/Note-Taker
 
 ## Usage
